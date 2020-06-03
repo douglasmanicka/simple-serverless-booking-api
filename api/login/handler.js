@@ -33,14 +33,14 @@ module.exports.login = async event => {
          }
          return{
             statusCode: 401,
-            body: JSON.stringify({message: "wrong user or password 1"})
+            body: JSON.stringify({message: "wrong user or password"})
 
          }
 
       }
       return{
         statusCode: 401,
-        body: JSON.stringify({message: "wrong user or password 2"})
+        body: JSON.stringify({message: "wrong user or password"})
 
      }    
 } 
