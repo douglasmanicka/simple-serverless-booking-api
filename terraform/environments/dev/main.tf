@@ -6,7 +6,7 @@ module "users" {
   jwt_secret = "${var.jwt_secret}"
 }
 
-module "boookings" {
+module "bookings" {
   source = "../../infra/bookings"
   environment = "${var.environment}"
   read_capacity = 1
