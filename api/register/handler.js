@@ -5,7 +5,7 @@ AWS.config.update({
   region: process.env.AWS_REGION
 })
 
-var bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 
 const documentClient = new AWS.DynamoDB.DocumentClient()
