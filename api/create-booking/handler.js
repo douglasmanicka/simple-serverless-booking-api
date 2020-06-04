@@ -16,7 +16,7 @@ module.exports.create = async event => {
            id: uuidv4(),
            date: body.date,
            user: event.requestContext.authorizer,
-           idUser: event.requestContext.authorizer.user.id
+           idUser: event.requestContext.authorizer.id
           
        }
    }).promise()
