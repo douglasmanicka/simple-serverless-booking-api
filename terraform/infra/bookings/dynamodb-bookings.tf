@@ -9,7 +9,7 @@ resource "aws_dynamodb_table" "bookings" {
   read_capacity = "${var.read_capacity}"
   write_capacity = "${var.write_capacity}" 
   stream_enabled = true
-  stream_view_type = "NEW_IMAGE "
+  stream_view_type = "NEW_IMAGE"
 }   
 
 resource "aws_ssm_parameter" "dynamodb_bookings_table" {
@@ -18,6 +18,13 @@ resource "aws_ssm_parameter" "dynamodb_bookings_table" {
   value = "${aws_dynamodb_table.bookings.name}"
 
 }
+
+resource "aws_ssm_parameter" "dynamodb_bookings_stream" {
+  name = "${var.environment}-dynamodb-bookings-stream" 
+  type = "String"
+  value = "${aws_dynamodb_table.bookings.stream_arn}"
+}
+
 
 
 
