@@ -1,4 +1,4 @@
-resource "aws_iam_policy" "bookings__stream_consumer_policy" {
+resource "aws_iam_policy" "bookings_stream_consumer_policy" {
   name        = "${var.environment}-bookings-stream-consumer-policy"
   description = "My test policy"
 
