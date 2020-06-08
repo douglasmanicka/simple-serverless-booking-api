@@ -15,7 +15,7 @@ module "bookings" {
   environment = "${var.environment}"
   read_capacity = 1
   write_capacity = 1
-  # sns_notification_arn = "${module.notifications.notifications_topic_arn}"
+  sns_notifications_arn = "${module.notifications.notifications_topic_arn}"
 }
 
 module "notifications" {
