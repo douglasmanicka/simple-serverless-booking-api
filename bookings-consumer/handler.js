@@ -1,7 +1,12 @@
 'use strict';
 
-module.exports.listen = async event => {
-  console.log(JSON.stringify(event))
+const AWS =  require('aws-sdk')
+const converter =  AWS.DynamoDB.Converter 
 
-  return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+
+module.exports.listen = async event => {
+  for (const record of event.Records) {
+    console.log("log parseado", converter.unmarshall(record.dynamodb.NewImage))
+  }
+  return { message: 'Function executed successfully!', event };
 };
