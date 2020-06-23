@@ -10,6 +10,7 @@ provider:
 
 functions:
   send_sms:
+    memorySize: ${self:custom.memorySize.${self:custom.stage}}
     handler: handler.send
     role: "${ssm:${self:custom.stage}-sms-iam-role}"
     events:
@@ -20,3 +21,6 @@ functions:
 
 custom:
   stage: ${opt:stage, self:provider.stage}
+  memorySize:
+    dev: 128
+    prod: 2048
