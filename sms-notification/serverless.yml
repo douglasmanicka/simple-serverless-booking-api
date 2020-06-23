@@ -1,0 +1,22 @@
+service: sms-notification
+
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: terraform-serverless 
+  stage: dev
+  region: us-east-1
+
+functions:
+  send_sms:
+    handler: handler.send
+    role: "${ssm:${self:custom.stage}-sms-iam-role}"
+    events:
+     - sqs: "${ssm:${self:custom.stage}-sms-sqs}"
+    environment:
+      SMS_PHONE_FROM: "${ssm:${self:custom.stage}-sms-phone-from}"
+      SMS_PHONE_TO: "${ssm:${self:custom.stage}-sms-phone-from}"
+
+custom:
+  stage: ${opt:stage, self:provider.stage}

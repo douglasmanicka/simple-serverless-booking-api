@@ -34,4 +34,6 @@ module "system" {
   email_from_password = "${var.email_from_password}"
   email_to = "${var.email_to}"
   smtp_server = "${var.smtp_server}"
+  sms_phone_from = "${var.sms_phone_from}"
+  sms_phone_to = "${var.sms_phone_to}"
 }

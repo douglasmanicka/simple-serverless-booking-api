@@ -6,6 +6,7 @@ resource "aws_iam_policy" "sms_policy" {
     action = join("\",\"",["sqs:ReceiveMessage",
                            "sqs:DeleteMessage",
                            "sqs:GetQueueAttributes"]),
-    resource =  "${aws_sqs_queue.sms.arn}"
+    resource =  "${aws_sqs_queue.sms.arn}",
+    sns_publish_enable = "true"
   })
 }

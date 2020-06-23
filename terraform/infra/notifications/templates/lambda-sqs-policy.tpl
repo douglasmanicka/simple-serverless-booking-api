@@ -17,5 +17,12 @@
             ],
             "Resource": "*"      
     }
+       %{if sns_publish_enable == "true"}
+    ,{
+            "Effect": "Allow",
+            "Action": "sns:Publish",
+            "Resource": "*"
+        }
+    %{ endif }
   ]
 }
