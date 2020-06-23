@@ -1,0 +1,7 @@
+# Serverless Booking API
+A simple Serverless Booking API for reservations and notifications.
+
+<p align="center">
+    <img src="/images/aws-map.png" width="50%" height="50%" />
+</p>
+
